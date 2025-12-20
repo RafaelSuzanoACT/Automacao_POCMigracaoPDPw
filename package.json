@@ -1,0 +1,23 @@
+{
+  "name": "automacao_pocmigracaopdpw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RafaelSuzanoACT/Automacao_POCMigracaoPDPw.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RafaelSuzanoACT/Automacao_POCMigracaoPDPw/issues"
+  },
+  "homepage": "https://github.com/RafaelSuzanoACT/Automacao_POCMigracaoPDPw#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.3"
+  }
+}
