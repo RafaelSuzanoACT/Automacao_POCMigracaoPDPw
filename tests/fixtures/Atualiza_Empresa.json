@@ -1,0 +1,17 @@
+[
+
+{
+  "nome": "Teste Atualizado",
+  "httpcode": 201,
+  "Cenario": "Atualizacao do nome da Empresa",
+  "mensagem": "Empresa cadastrada com sucesso"
+},
+
+{
+  "nome": "Teste Atualizado Email",
+  "email": "teste@example.com",
+  "httpcode": 201,
+  "Cenario": "Atualizacao do nome da Empresa e do email",
+  "mensagem": "Empresa cadastrada com sucesso"
+}
+]

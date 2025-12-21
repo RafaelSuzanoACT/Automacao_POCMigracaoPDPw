@@ -1,0 +1,40 @@
+[
+
+{
+  "nome": "Rafael",
+  "cnpj": "51.147.753/9528-88",
+  "telefone": "11947881630",
+  "email": "teste@eact.com",
+  "endereco": "rua teste ",
+  "httpcode": 201,
+  "Cenario": "Cadastro Empresa com CNPJ valido",
+  "mensagem": "Empresa cadastrada com sucesso"
+
+},
+{
+  "nome": "Rafael",
+  "cnpj": "51.147.753/9528-88",
+  "telefone": "11947881630",
+  "email": "teste@eact.com",
+  "endereco": "rua teste ",
+  "httpcode": 400,
+  "Cenario": "Cadastro Empresa com CNPJ valido repetido",
+  "mensagem": "J� existe uma empresa com o nome 'Rafael'"
+
+},
+{
+  "nome": "Rafael",
+  "cnpj": "51.147.753/9528-87",
+  "telefone":"",
+  "email": "teste@eact.com",
+  "endereco": "rua teste ",
+  "httpcode": 400,
+  "Cenario": "Cadastro Empresa Sem Telefone",
+  "mensagem": "J� existe uma empresa com o nome 'Rafael'"
+
+}
+
+
+
+
+]
