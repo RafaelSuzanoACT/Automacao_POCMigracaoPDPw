@@ -1,17 +1,19 @@
 [
+  {
+    "nome": "Teste Atualizado Email",
+    "email": "Atualizado@example.com",
+    "ativo": true,
+    "httpcode": 200,
+    "cenario": "Atualização do nome da Empresa e do email"
+  },
 
-{
-  "nome": "Teste Atualizado",
-  "httpcode": 201,
-  "Cenario": "Atualizacao do nome da Empresa",
-  "mensagem": "Empresa cadastrada com sucesso"
-},
+    { 
+    "nome": "Teste Atualizado Email",
+    "telefone": "11947881630",
+    "ativo": true,
+    "httpcode": 200,
+    "cenario": "Atualização do telefone da Empresa"
+  }
 
-{
-  "nome": "Teste Atualizado Email",
-  "email": "teste@example.com",
-  "httpcode": 201,
-  "Cenario": "Atualizacao do nome da Empresa e do email",
-  "mensagem": "Empresa cadastrada com sucesso"
-}
+
 ]

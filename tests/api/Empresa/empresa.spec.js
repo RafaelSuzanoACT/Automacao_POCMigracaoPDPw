@@ -1,20 +1,18 @@
 import { test, expect } from '@playwright/test';
 const { Post_Empresa, Get_Empresa, Get_Empresa_Filtro, Delete_Empresa, Get_Empresa_Filtro_CNPJ, Get_Empresa_Verifica_Nome, Get_Empresa_Filtro_Nome,
-  Get_Empresa_Verifica_CNPJ } = require('../../support/commands');
+  Get_Empresa_Verifica_CNPJ,
+  Put_Empresa } = require('../../support/commands');
 const empresaFixture = require('../../fixtures/Cadastro_Empresa.json');
 const atualizaEmpresaFixture = require('../../fixtures/Atualiza_Empresa.json');
 let id_empresa
-test.describe('API /Empresas', () => {
+test.describe('API Empresas', () => {
 
   // 🚀 Testes de POST
   empresaFixture.forEach((payloadEmpresa) => {
     test(`Enviar POST para ${payloadEmpresa.Cenario}`, async ({ request }, testInfo) => {
       const expectedStatus = payloadEmpresa.httpcode;
       const response = await Post_Empresa(request, testInfo.project.use.baseURL, payloadEmpresa);
-
       const body = await response.json();
-
-  
       console.log('Projeto:', testInfo.project.name);
       console.log('BaseURL:', testInfo.project.use.baseURL);
       console.log('Status Code:', response.status());
@@ -26,16 +24,15 @@ test.describe('API /Empresas', () => {
       } else if (body.id) {
         console.log('✅ ID retornado:', body.id);
         id_empresa = body.id
+            console.log('Response Body:', body);
       }
       expect(response.status()).toBe(expectedStatus);
-
     });
 
-
-    
-
-
   });
+
+
+
 
   // 🔹 Consulta todas empresas
   test('Consulta Todas Empresas', async ({ request }, testInfo) => {
@@ -45,7 +42,7 @@ test.describe('API /Empresas', () => {
     console.log('Projeto:', testInfo.project.name);
     console.log('BaseURL:', testInfo.project.use.baseURL);
     console.log('Status Code:', response.status());
-    console.log('Response Body:', body);
+    // console.log('Response Body:', body);
 
     expect(response.status()).toBe(200);
   });
@@ -115,28 +112,57 @@ test.describe('API /Empresas', () => {
 
 
 
-  test('Delete Empresa', async ({ request }, testInfo) => {
-    const response = await Delete_Empresa(request, testInfo.project.use.baseURL, id_empresa);
-
-    console.log('Projeto:', testInfo.project.name);
-    console.log('BaseURL:', testInfo.project.use.baseURL);
-    console.log('Status Code:', response.status());
-
-
-    let body;
-    try {
-      body = await response.json(); // tenta pegar o body
-    } catch (err) {
-      body = 'No content'; // caso não haja body
-    }
-    console.log('Response Body:', body);
-
-    expect(response.status()).toBe(204);
-  });
-
-
-
-
-
-
 });
+atualizaEmpresaFixture.forEach((payloadEmpresa_Atualizar, index) => {
+  test(
+    `Atualizar dados da empresa - ${payloadEmpresa_Atualizar.cenario}`,
+    async ({ request }, testInfo) => {
+
+      const response = await Put_Empresa(
+        request,
+        testInfo.project.use.baseURL,
+        payloadEmpresa_Atualizar,
+        id_empresa
+      );
+
+      expect(response.status()).toBe(payloadEmpresa_Atualizar.httpcode);
+
+      const text = await response.text();
+      const body = text ? JSON.parse(text) : null;
+
+      console.log('Response Body:', body);
+    }
+  );
+});
+
+
+
+
+
+
+
+
+
+test('Delete Empresa', async ({ request }, testInfo) => {
+  const response = await Delete_Empresa(request, testInfo.project.use.baseURL, id_empresa);
+
+  console.log('Projeto:', testInfo.project.name);
+  console.log('BaseURL:', testInfo.project.use.baseURL);
+  console.log('Status Code:', response.status());
+
+
+  let body;
+  try {
+    body = await response.json(); // tenta pegar o body
+  } catch (err) {
+    body = 'No content'; // caso não haja body
+  }
+  console.log('Response Body:', body);
+
+  expect(response.status()).toBe(204);
+});
+
+
+
+
+

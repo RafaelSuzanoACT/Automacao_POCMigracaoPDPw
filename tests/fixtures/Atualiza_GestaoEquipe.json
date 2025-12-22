@@ -1,0 +1,12 @@
+[
+  {
+    "cenario": "Cadastro de nova equipe com sucesso telefone alterado",
+    "httpcode": 200,
+    "nome": "Automacao_Eq01",
+    "descricao": "Teste Automatizado - Cadastro de equipe",
+    "coordenador": "Automacao",
+    "email": "Automacao@Automacao.com.br",
+    "telefone": "1199999-9998",
+    "ativo": true
+  }
+]

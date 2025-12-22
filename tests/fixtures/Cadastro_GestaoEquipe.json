@@ -1,0 +1,33 @@
+[
+{
+  "cenario": "Cadastro de nova equipe com sucesso",
+  "httpcode": 201,
+    "nome": "Automacao_Eq01",
+  "descricao": "Teste Automatizado - Cadastro de equipe",
+  "coordenador": "Automacao",
+  "email": "Automacao@Automacao.com.br",
+  "telefone": "1199999-9999"
+
+
+},
+
+
+
+
+
+{
+  "cenario": "Cadastro de nova equipe com nome inferior a 3 caracteres",
+  "httpcode": 400,
+    "nome": "T",
+  "descricao": "Teste Automatizado - Cadastro de equipe",
+  "coordenador": "Automacao",
+  "email": "Automacao@Automacao.com.br",
+  "telefone": "1199999-9999"
+
+
+}
+
+
+
+
+]

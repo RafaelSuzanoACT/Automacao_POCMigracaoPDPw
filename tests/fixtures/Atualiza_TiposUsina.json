@@ -1,0 +1,13 @@
+[
+
+{
+  "nome": "Automacao 2",
+  "descricao": "Automacao 2",
+  "fonteEnergia": "Automacao 2",
+    "ativo": true,
+  "httpcode": 200,
+  "Cenario": "Atualiza Tipos Usina com sucesso"
+
+
+}
+]
