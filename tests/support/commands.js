@@ -258,10 +258,99 @@ async function Delete_TiposUsina(request, BaseURL, id_tiposusina) {
 
 
 
+// Cargas
 
 
 
+async function Get_Cargas(request, BaseURL) {
+  const url = `/Cargas`;
+  const response = await request.get(`${BaseURL}${url}`);
+  console.log('URL Requisição:', `${BaseURL}${url}`);
+  
 
+  return response;
+}
+
+async function Get_CargasFiltroID(request, BaseURL, ID_Carga) {
+  const url = `/Cargas/${ID_Carga}`;
+  const response = await request.get(`${BaseURL}${url}`);
+  console.log('URL Requisição:', `${BaseURL}${url}`);
+  
+
+  return response;
+}
+
+
+async function Get_CargasFiltroPeriodo(request, BaseURL, dtini,dtfim) {
+  const url = `/Cargas/periodo?dtini=${dtini}&dtfim=${dtfim}`;
+  const response = await request.get(`${BaseURL}${url}`);
+  console.log('URL Requisição:', `${BaseURL}${url}`);
+  
+
+  return response;
+}
+
+
+async function Get_CargasFiltroSubSistema(request, BaseURL, subsistemaId) {
+  const url = `/Cargas/subsistema/${subsistemaId}`;
+  const response = await request.get(`${BaseURL}${url}`);
+  console.log('URL Requisição:', `${BaseURL}${url}`);
+  
+
+  return response;
+}
+
+
+
+//dataReferencia
+
+async function Get_CargasDataReferencia(request, BaseURL, dataReferencia) {
+  const url = `/Cargas/data/${dataReferencia}`;
+  const response = await request.get(`${BaseURL}${url}`);
+  console.log('URL Requisição:', `${BaseURL}${url}`);
+    return response;
+}
+
+async function Post_Cargas(request, BaseURL, payload) {
+  const body = { ...payload };
+  delete body.httpcode;
+  delete body.cenario;
+  console.log('URL Requisição:', `${BaseURL}/Cargas`);
+  const response = await request.post(`${BaseURL}/Cargas`, {
+    data: body,
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  return response;
+}
+
+async function Delete_Carga(request, BaseURL, id_carga) {
+
+  
+  const url = `${BaseURL}/Cargas/${id_carga}`;
+  const response = await request.delete(`${url}`);
+  console.log('URL Requisição:', `${url}`);
+
+  return response;
+}
+
+async function Put_AtualizaCarga(request, BaseURL, payload, id_carga) {
+  const body = { ...payload };
+  delete body.httpcode;
+  delete body.cenario;
+  delete body.mensagem;
+
+  const response = await request.put(`${BaseURL}/Cargas/${id_carga}`, {
+    data: body,
+    headers: {
+      'Content-Type': 'application/json',
+      'accept': 'application/json',
+    },
+
+  });
+
+  return response;
+}
 // ✅ Exportando todas as funções de uma vez
 module.exports = {
   Get_Health,
@@ -293,8 +382,18 @@ module.exports = {
     Get_TiposUsinaPorID,
     Post_TiposUsina,
     Delete_TiposUsina,
-    Put_TipoUsina
+    Put_TipoUsina,
     
+
+    Get_Cargas,
+    Get_CargasFiltroID,
+    Get_CargasFiltroPeriodo,
+    Get_CargasFiltroSubSistema,
+    Get_CargasDataReferencia,
+    Post_Cargas,
+    Delete_Carga,
+    Put_AtualizaCarga
+
 
     
 };

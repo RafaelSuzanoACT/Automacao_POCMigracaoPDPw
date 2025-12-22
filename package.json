@@ -7,7 +7,15 @@
     "clean:report": "rm -rf playwright-report test-results",
     "test": "npm run clean:report && npx playwright test",
     "test:web": "npm run clean:report && npx playwright test --project=web",
-    "test:api": "npm run clean:report && npx playwright test --project=api"
+    "test:api": "npm run clean:report && npx playwright test --project=api",
+   
+   
+    "test:api_carga": "npx playwright test api/Cargas --project=api",
+    "test:api_GestaoEquipe": "npx playwright test api/GestaoEquipe --project=api",
+    "test:api_TipoUsina": "npx playwright test api/TipoUsina --project=api",
+    "test:api_Empresa": "npx playwright test api/Empresa --project=api"
+  
+  
   },
   "repository": {
     "type": "git",

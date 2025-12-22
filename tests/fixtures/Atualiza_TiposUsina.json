@@ -6,7 +6,7 @@
   "fonteEnergia": "Automacao 2",
     "ativo": true,
   "httpcode": 200,
-  "Cenario": "Atualiza Tipos Usina com sucesso"
+  "cenario": "Atualiza Tipos Usina com sucesso"
 
 
 }

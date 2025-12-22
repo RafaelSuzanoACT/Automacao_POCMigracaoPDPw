@@ -5,7 +5,7 @@
   "descricao": "Automacao",
   "fonteEnergia": "Automacao",
   "httpcode": 201,
-  "Cenario": "Cadastro Tipos Usina com sucesso"
+  "cenario": "Cadastro Tipos Usina com sucesso"
 
 
 }

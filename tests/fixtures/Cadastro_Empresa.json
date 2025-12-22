@@ -7,7 +7,7 @@
   "email": "teste@eact.com",
   "endereco": "rua teste ",
   "httpcode": 201,
-  "Cenario": "Cadastro Empresa com CNPJ valido",
+  "cenario": "Cadastro Empresa com CNPJ valido",
   "mensagem": "Empresa cadastrada com sucesso"
 
 },

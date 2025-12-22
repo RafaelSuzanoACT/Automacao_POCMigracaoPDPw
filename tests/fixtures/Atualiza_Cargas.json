@@ -1,0 +1,12 @@
+[
+{
+  "dataReferencia": "1985-12-22T22:24:29.816Z",
+  "subsistemaId": "2",
+  "cargaMWmed": 0,
+  "cargaVerificada": 0,
+  "previsaoCarga": 0,
+  "observacoes": "string",
+  "cenario": "Atualizacao de Carga",
+  "httpcode": 200
+}
+]

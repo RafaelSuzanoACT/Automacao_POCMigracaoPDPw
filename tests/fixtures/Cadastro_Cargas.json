@@ -1,0 +1,40 @@
+[
+ {
+
+  "dataReferencia": "2025-12-22T22:49:03.262Z",
+  "subsistemaId": "1",
+  "cargaMWmed": 0,
+  "cargaVerificada": 0,
+  "previsaoCarga": 0,
+  "observacoes": "1",
+
+    "cenario": "Cadastro carga com dados validos",
+  "httpcode": 201   
+
+
+
+},
+
+{
+  "dataReferencia": "",
+  "subsistemaId": "1",
+  "cargaMWmed": 0,
+  "cargaVerificada": 0,
+  "previsaoCarga": 0,
+  "observacoes": "1",
+      "cenario": "Cadastro carga sem dataReferencia",
+  "httpcode": 400   
+},
+
+
+{
+  "dataReferencia": "2025-12-22T22:49:03.262Z",
+  "subsistemaId": "",
+  "cargaMWmed": 0,
+  "cargaVerificada": 0,
+  "previsaoCarga": 0,
+  "observacoes": "1",
+      "cenario": "Cadastro carga sem SistemaID",
+  "httpcode": 400   
+}
+]
