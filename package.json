@@ -12,10 +12,10 @@
    
     "test:api_carga": "npx playwright test api/Cargas --project=api",
     "test:api_GestaoEquipe": "npx playwright test api/GestaoEquipe --project=api",
-    "test:api_TipoUsina": "npx playwright test api/TipoUsina --project=api",
-    "test:api_Empresa": "npx playwright test api/Empresa --project=api"
-  
-  
+    "test:api_TiposUsina": "npx playwright test api/TiposUsina --project=api",
+    "test:api_Empresa": "npx playwright test api/Empresa --project=api",
+    "test:api_ArquivosDadger": "npx playwright test api/ArquivosDadger --project=api",
+    "test:api_RestricoesUG": "npx playwright test api/RestricoesUG --project=api"
   },
   "repository": {
     "type": "git",

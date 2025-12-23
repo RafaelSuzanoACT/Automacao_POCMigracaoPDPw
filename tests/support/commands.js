@@ -8,11 +8,6 @@ async function Get_ArquivosDadger(request, BaseURL) {
   return response;
 }
 
-async function Get_Empresa(request, BaseURL) {
-  const response = await request.get(BaseURL + '/Empresas');
-  return response;
-}
-
 async function Get_Empresa_Filtro(request, BaseURL, id_empresa) {
   const response = await request.get(`${BaseURL}/Empresas/${id_empresa}`);
   return response;
@@ -30,68 +25,10 @@ async function Get_Empresa_Filtro_Nome(request, BaseURL, nome) {
 }
 
 
-async function Get_Empresa_Verifica_Nome(request, BaseURL, nome) {
-  const response = await request.get(`${BaseURL}/Empresas/verificar-nome/${nome}`);
-  return response;
-}
+
 
 async function Get_Empresa_Verifica_CNPJ(request, BaseURL, cnpj) {
   const response = await request.get(`${BaseURL}/Empresas/verificar-cnpj/${cnpj}`);
-  return response;
-}
- 
-
-
-
-
-
-async function Post_Empresa(request, BaseURL, payload) {
-  const body = { ...payload };
-  delete body.httpcode;
-  delete body.cenario;
-
-  const response = await request.post(`${BaseURL}/Empresas`, {
-    data: body,
-    headers: { 'Content-Type': 'application/json' },
-  });
-
-  return response;
-}
-
-
-
-
-async function Put_Empresa(request, BaseURL, payload, id_empresa) {
-  const body = { ...payload };
-  delete body.httpcode;
-  delete body.cenario;
-  delete body.mensagem;
-
-  const response = await request.put(`${BaseURL}/Empresas/${id_empresa}`, {
-    data: body,
-    headers: {
-      'Content-Type': 'application/json',
-      'accept': 'application/json',
-    },
-  });
-
-  return response;
-}
-
-async function Delete_Empresa(request, BaseURL, id_empresa) {
-  const response = await request.delete(`${BaseURL}/Empresas/${id_empresa}`);
-  return response;
-}
-
-
-// Gestao Equipe
-
-async function Get_Gestao_Equipe(request, BaseURL) {
-  const url = `/EquipesPdp`;
-  const response = await request.get(`${BaseURL}${url}`);
-  console.log('URL Requisição:', `${BaseURL}${url}`);
-  
-
   return response;
 }
 
@@ -99,9 +36,7 @@ async function Get_Gestao_Equipe(request, BaseURL) {
 async function Get_Gestao_Equipe_Nome(request, BaseURL, nome) {
   const url = `/EquipesPdp/nome/${nome}`;
   const response = await request.get(`${BaseURL}${url}`);
-  console.log('URL Requisição:', `${BaseURL}${url}`);
-
-
+ 
 
   return response;
 }
@@ -110,7 +45,6 @@ async function Get_Gestao_Equipe_Membros(request, BaseURL, id_equipe) {
   const url = `/EquipesPdp/${id_equipe}/membros`;
   const response = await request.get(`${BaseURL}${url}`);
   console.log('URL Requisição:', `${BaseURL}${url}`);
-
 
   return response;
 }
@@ -123,54 +57,10 @@ async function Get_Gestao_Equipe_Filtro(request, BaseURL, id_equipe) {
 }
 
 
-async function Get_Gestao_Equipe_Verificar_Nome(request, BaseURL, nome) {
-  const url = `/EquipesPdp/verificar-nome?nome=${nome}`;
-  const response = await request.get(`${BaseURL}${url}`);
+async function Get_Generico_Verificar_Nome(request, BaseURL, Endpoint, nome) {
+  const url = `/${Endpoint}/verificar-nome/${nome}`;
   console.log('URL Requisição:', `${BaseURL}${url}`);
-  return response;
-}
-
-
-async function Post_GestaoEquipes(request, BaseURL, payload) {
-  const body = { ...payload };
-  delete body.httpcode;
-  delete body.cenario;
-
-  const response = await request.post(`${BaseURL}/EquipesPdp`, {
-    data: body,
-    headers: { 'Content-Type': 'application/json' },
-  });
-
-  return response;
-}
-
-
-
-
-async function Put_AtualizaGestaoEquipe(request, BaseURL, payload, id_equipe) {
-  const body = { ...payload };
-  delete body.httpcode;
-  delete body.cenario;
-  delete body.mensagem;
-
-  const response = await request.put(`${BaseURL}/EquipesPdp/${id_equipe}`, {
-    data: body,
-    headers: {
-      'Content-Type': 'application/json',
-      'accept': 'application/json',
-    },
-  });
-
-  return response;
-}
-
-
-async function Delete_GestaoEquipe(request, BaseURL, id_equipe) {
-
-  
-  const url = `${BaseURL}/EquipesPdp/${id_equipe}`;
-  const response = await request.delete(`${url}`);
-  console.log('URL Requisição:', `${url}`);
+  const response = await request.get(`${BaseURL}${url}`);
 
   return response;
 }
@@ -179,82 +69,50 @@ async function Delete_GestaoEquipe(request, BaseURL, id_equipe) {
 //Tipos de TiposUsina
 
 
-async function Get_TiposUsina(request, BaseURL) {
-  const url = `/TiposUsina`;
+async function Get_Generico(request, BaseURL, Endpoint) {
+  const url = "/" + Endpoint;
   const response = await request.get(`${BaseURL}${url}`);
   console.log('URL Requisição:', `${BaseURL}${url}`);
-  
+
 
   return response;
 }
 
 
-async function Get_TiposUsinaPorID(request, BaseURL,ID_TiposUsina) {
+async function Get_TiposUsinaPorID(request, BaseURL, ID_TiposUsina) {
   const url = `/TiposUsina/${ID_TiposUsina}`;
   const response = await request.get(`${BaseURL}${url}`);
   console.log('URL Requisição:', `${BaseURL}${url}`);
-  
+
 
   return response;
 }
+
 
 
 async function Get_TiposUsinaNome(request, BaseURL, nome) {
   const url = `/TiposUsina/nome/${nome}`;
   const response = await request.get(`${BaseURL}${url}`);
   console.log('URL Requisição:', `${BaseURL}${url}`);
-  
 
-  return response;
-}
-
-async function Get_TiposUsina_VerificarNome(request, BaseURL, nome) {
-  const url = `/EquipesPdp/verificar-nome?nome=${nome}`;
-  const response = await request.get(`${BaseURL}${url}`);
-  console.log('URL Requisição:', `${BaseURL}${url}`);
-  return response;
-}
-
-
-async function Post_TiposUsina(request, BaseURL, payload) {
-  const body = { ...payload };
-  delete body.httpcode;
-  delete body.cenario;
-  console.log('URL Requisição:', `${BaseURL}/TiposUsina`);
-  const response = await request.post(`${BaseURL}/TiposUsina`, {
-    data: body,
-    headers: { 'Content-Type': 'application/json' },
-  });
 
   return response;
 }
 
 
+async function Delete_Generico(request, BaseURL, id, Endpoint) {
 
-async function Put_TipoUsina(request, BaseURL, payload, id_tiposusina) {
-  const body = { ...payload };
-  delete body.httpcode;
-  delete body.cenario;
-  delete body.mensagem;
-
-  const response = await request.put(`${BaseURL}/TiposUsina/${id_tiposusina}`, {
-    data: body,
+  const url = `${BaseURL}/${Endpoint}/${id}`
+  console.log('URL Requisição:', url);
+  const response = await request.delete(url, {
     headers: {
       'Content-Type': 'application/json',
       'accept': 'application/json',
     },
-  });
+  })
 
   return response;
 }
-
-
-
-async function Delete_TiposUsina(request, BaseURL, id_tiposusina) {
-  const response = await request.delete(`${BaseURL}/TiposUsina/${id_tiposusina}`);
-  return response;
-}
-
 
 
 
@@ -262,40 +120,43 @@ async function Delete_TiposUsina(request, BaseURL, id_tiposusina) {
 
 
 
-async function Get_Cargas(request, BaseURL) {
-  const url = `/Cargas`;
-  const response = await request.get(`${BaseURL}${url}`);
-  console.log('URL Requisição:', `${BaseURL}${url}`);
-  
-
-  return response;
-}
-
 async function Get_CargasFiltroID(request, BaseURL, ID_Carga) {
   const url = `/Cargas/${ID_Carga}`;
   const response = await request.get(`${BaseURL}${url}`);
   console.log('URL Requisição:', `${BaseURL}${url}`);
-  
+
 
   return response;
 }
 
 
-async function Get_CargasFiltroPeriodo(request, BaseURL, dtini,dtfim) {
+async function Get_CargasFiltroPeriodo(request, BaseURL, dtini, dtfim) {
   const url = `/Cargas/periodo?dtini=${dtini}&dtfim=${dtfim}`;
   const response = await request.get(`${BaseURL}${url}`);
   console.log('URL Requisição:', `${BaseURL}${url}`);
-  
+
 
   return response;
 }
 
+
+
+async function Get_FiltroPeriodo(request, BaseURL, endpoint, dtini, dtfim) {
+  const url = `/${endpoint}/?dataInicio=${dtini}&dataFim=${dtfim}`;
+
+  console.log('URL Requisição:', `${BaseURL}${url}`);
+
+  const response = await request.get(`${BaseURL}${url}`);
+  return response;
+}
+
+module.exports = { Get_FiltroPeriodo };
 
 async function Get_CargasFiltroSubSistema(request, BaseURL, subsistemaId) {
   const url = `/Cargas/subsistema/${subsistemaId}`;
   const response = await request.get(`${BaseURL}${url}`);
   console.log('URL Requisição:', `${BaseURL}${url}`);
-  
+
 
   return response;
 }
@@ -308,15 +169,19 @@ async function Get_CargasDataReferencia(request, BaseURL, dataReferencia) {
   const url = `/Cargas/data/${dataReferencia}`;
   const response = await request.get(`${BaseURL}${url}`);
   console.log('URL Requisição:', `${BaseURL}${url}`);
-    return response;
+  return response;
 }
 
-async function Post_Cargas(request, BaseURL, payload) {
+
+
+
+
+async function Post_Generico(request, BaseURL, Endpoint, payload) {
   const body = { ...payload };
   delete body.httpcode;
   delete body.cenario;
-  console.log('URL Requisição:', `${BaseURL}/Cargas`);
-  const response = await request.post(`${BaseURL}/Cargas`, {
+  console.log('URL Requisição:', `${BaseURL}/${Endpoint}`);
+  const response = await request.post(`${BaseURL}/${Endpoint}`, {
     data: body,
     headers: { 'Content-Type': 'application/json' },
   });
@@ -324,76 +189,101 @@ async function Post_Cargas(request, BaseURL, payload) {
   return response;
 }
 
-async function Delete_Carga(request, BaseURL, id_carga) {
 
-  
-  const url = `${BaseURL}/Cargas/${id_carga}`;
-  const response = await request.delete(`${url}`);
-  console.log('URL Requisição:', `${url}`);
-
-  return response;
-}
-
-async function Put_AtualizaCarga(request, BaseURL, payload, id_carga) {
+async function Put_Generico(request, BaseURL, payload, id_, Endpoint) {
   const body = { ...payload };
   delete body.httpcode;
   delete body.cenario;
   delete body.mensagem;
-
-  const response = await request.put(`${BaseURL}/Cargas/${id_carga}`, {
+  let url = `${BaseURL}/${Endpoint}/${id_}`
+  console.log('URL Requisição:', url);
+  const response = await request.put(url, {
     data: body,
     headers: {
       'Content-Type': 'application/json',
       'accept': 'application/json',
     },
-
   });
 
   return response;
 }
+
+
+
+async function Get_GenericoFiltroID(request, BaseURL, id_, Endpoint) {
+  const url = `${Endpoint}/${id_}`;
+  console.log('URL Requisição:', `${BaseURL}${url}`);
+
+  const response = await request.get(`${BaseURL}${url}`);
+  
+
+  return response;
+}
+
+async function Get_GenericoFiltroParam(request, BaseURL, Endpoint, id_) {
+  const url = `${Endpoint}${id_}`;
+  console.log('URL Requisição:', `${BaseURL}${url}`);
+  const response = await request.get(`${BaseURL}${url}`);
+    return response;
+}
+
+
+async function Patch_Generico(request, BaseURL, Endpoint, id_) {
+  const url = `/${Endpoint}${id_}+/processar`;
+  console.log('URL Requisição:', `${BaseURL}${url}`);
+  const response = await request.patch(`${BaseURL}${url}`);
+    return response;
+}
+
+
 // ✅ Exportando todas as funções de uma vez
 module.exports = {
+  Post_Generico,
+  Get_Generico,
+  Put_Generico,
+  Delete_Generico,
+  Get_Generico_Verificar_Nome,
+  Get_GenericoFiltroID,
+  Get_GenericoFiltroParam,
+  Patch_Generico,
+
+  
+  Get_FiltroPeriodo,
+
   Get_Health,
   Get_ArquivosDadger,
-    
-    Get_Empresa,
-    Get_Empresa_Filtro,
-    Post_Empresa,
-    Delete_Empresa,
-    Get_Empresa_Filtro_CNPJ,
-    Get_Empresa_Filtro_Nome,
-    Get_Empresa_Verifica_Nome,
-    Get_Empresa_Verifica_CNPJ,
-    Put_Empresa,
-
-    Get_Gestao_Equipe,
-    Get_Gestao_Equipe_Nome,
-    Get_Gestao_Equipe_Membros,
-    Get_Gestao_Equipe_Filtro,
-    Get_Gestao_Equipe_Verificar_Nome,
-    Post_GestaoEquipes,
-    Delete_GestaoEquipe,
-    Put_AtualizaGestaoEquipe,
 
 
-    Get_TiposUsina,
-    Get_TiposUsinaNome,
-    Get_TiposUsina_VerificarNome,
-    Get_TiposUsinaPorID,
-    Post_TiposUsina,
-    Delete_TiposUsina,
-    Put_TipoUsina,
-    
-
-    Get_Cargas,
-    Get_CargasFiltroID,
-    Get_CargasFiltroPeriodo,
-    Get_CargasFiltroSubSistema,
-    Get_CargasDataReferencia,
-    Post_Cargas,
-    Delete_Carga,
-    Put_AtualizaCarga
+  Get_Empresa_Filtro,
 
 
-    
+  Get_Empresa_Filtro_CNPJ,
+  Get_Empresa_Filtro_Nome,
+
+  Get_Empresa_Verifica_CNPJ,
+
+
+
+  Get_Gestao_Equipe_Nome,
+  Get_Gestao_Equipe_Membros,
+  Get_Gestao_Equipe_Filtro,
+
+
+
+
+
+
+
+  Get_TiposUsinaNome,
+  Get_TiposUsinaPorID,
+
+  Get_CargasFiltroID,
+  Get_CargasFiltroPeriodo,
+  Get_CargasFiltroSubSistema,
+  Get_CargasDataReferencia,
+
+
+
+
 };
+

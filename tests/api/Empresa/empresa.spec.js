@@ -1,17 +1,32 @@
 import { test, expect } from '@playwright/test';
-const { Post_Empresa, Get_Empresa, Get_Empresa_Filtro, Delete_Empresa, Get_Empresa_Filtro_CNPJ, Get_Empresa_Verifica_Nome, Get_Empresa_Filtro_Nome,
+const { 
+  Post_Generico, 
+  Delete_Generico,
+  Put_Generico,
+  Get_Generico,
+
+
+  Get_Empresa_Filtro, 
+
+  Get_Empresa_Filtro_CNPJ, 
+  Get_Empresa_Verifica_Nome, 
+  Get_Empresa_Filtro_Nome,
   Get_Empresa_Verifica_CNPJ,
-  Put_Empresa } = require('../../support/commands');
+
+  } = require('../../support/commands');
 const empresaFixture = require('../../fixtures/Cadastro_Empresa.json');
 const atualizaEmpresaFixture = require('../../fixtures/Atualiza_Empresa.json');
-let id_empresa
+let id_empresa ;
 test.describe('API Empresas', () => {
 
   // 🚀 Testes de POST
   empresaFixture.forEach((payloadEmpresa) => {
-    test(`Enviar POST para ${payloadEmpresa.Cenario}`, async ({ request }, testInfo) => {
+    test(`Cadastro de Empresas -    ${payloadEmpresa.cenario}`, async ({ request }, testInfo) => {
+      
       const expectedStatus = payloadEmpresa.httpcode;
-      const response = await Post_Empresa(request, testInfo.project.use.baseURL, payloadEmpresa);
+     
+
+      const response = await Post_Generico(request, testInfo.project.use.baseURL,'Empresas', payloadEmpresa);
       const body = await response.json();
       console.log('Projeto:', testInfo.project.name);
       console.log('BaseURL:', testInfo.project.use.baseURL);
@@ -23,7 +38,7 @@ test.describe('API Empresas', () => {
         console.log(`❌ Esperado: ${expectedStatus}, Recebido: ${response.status()}`);
       } else if (body.id) {
         console.log('✅ ID retornado:', body.id);
-        id_empresa = body.id
+        id_empresa = body.id;
             console.log('Response Body:', body);
       }
       expect(response.status()).toBe(expectedStatus);
@@ -36,7 +51,7 @@ test.describe('API Empresas', () => {
 
   // 🔹 Consulta todas empresas
   test('Consulta Todas Empresas', async ({ request }, testInfo) => {
-    const response = await Get_Empresa(request, testInfo.project.use.baseURL);
+    const response = await Get_Generico(request, testInfo.project.use.baseURL, 'Empresas');
     const body = await response.json();
 
     console.log('Projeto:', testInfo.project.name);
@@ -118,11 +133,12 @@ atualizaEmpresaFixture.forEach((payloadEmpresa_Atualizar, index) => {
     `Atualizar dados da empresa - ${payloadEmpresa_Atualizar.cenario}`,
     async ({ request }, testInfo) => {
 
-      const response = await Put_Empresa(
+      const response = await Put_Generico(
         request,
-        testInfo.project.use.baseURL,
+
         payloadEmpresa_Atualizar,
-        id_empresa
+        id_empresa,
+        'Empresas',
       );
 
       expect(response.status()).toBe(payloadEmpresa_Atualizar.httpcode);
@@ -144,12 +160,10 @@ atualizaEmpresaFixture.forEach((payloadEmpresa_Atualizar, index) => {
 
 
 test('Delete Empresa', async ({ request }, testInfo) => {
-  const response = await Delete_Empresa(request, testInfo.project.use.baseURL, id_empresa);
+  const response = await Delete_Generico(request, testInfo.project.use.baseURL, id_empresa, 'Empresas');
 
-  console.log('Projeto:', testInfo.project.name);
-  console.log('BaseURL:', testInfo.project.use.baseURL);
   console.log('Status Code:', response.status());
-
+  console.log(id_empresa)
 
   let body;
   try {

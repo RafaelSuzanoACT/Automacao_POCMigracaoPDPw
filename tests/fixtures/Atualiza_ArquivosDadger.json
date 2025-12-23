@@ -1,0 +1,25 @@
+[
+{
+ "nomeArquivo": "string",
+  "caminhoArquivo": "string",
+  "dataImportacao": "2025-12-23T13:27:33.394Z",
+  "semanaPMOId": 0,
+  "observacoes": "string",
+  "processado": true,
+  "dataProcessamento": "2025-12-23T13:27:33.394Z",
+  "cenario": "Cadastro Valido",
+  "httpcode": 200 
+},
+{
+ "nomeArquivo": "string",
+  "caminhoArquivo": "string",
+  "dataImportacao": "2025-12-23T13:27:33.394Z",
+  "semanaPMOId": 0,
+  "observacoes": "string",
+  "processado": true,
+  "dataProcessamento": "2025-12-23T13:27:33.394Z",
+  "cenario": "Cadastro Invalido - Nome do arquivo vazio",
+  "httpcode": 400   
+}
+
+]

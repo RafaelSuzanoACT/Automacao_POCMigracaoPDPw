@@ -1,0 +1,12 @@
+[
+{
+  "unidadeGeradoraId": 0,
+  "dataInicio": "2025-12-23T17:55:19.807Z",
+  "dataFim": "2025-12-23T17:55:19.807Z",
+  "motivoRestricaoId": 0,
+  "potenciaRestrita": 0,
+  "observacoes": "string",
+  "cenario": "Cadastro Valido",
+  "httpcode": 201
+}
+]

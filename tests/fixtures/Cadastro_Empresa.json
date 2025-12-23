@@ -18,7 +18,7 @@
   "email": "teste@eact.com",
   "endereco": "rua teste ",
   "httpcode": 400,
-  "Cenario": "Cadastro Empresa com CNPJ valido repetido",
+  "cenario": "Cadastro Empresa com CNPJ valido repetido",
   "mensagem": "J� existe uma empresa com o nome 'Rafael'"
 
 },
@@ -29,7 +29,7 @@
   "email": "teste@eact.com",
   "endereco": "rua teste ",
   "httpcode": 400,
-  "Cenario": "Cadastro Empresa Sem Telefone",
+  "cenario": "Cadastro Empresa Sem Telefone",
   "mensagem": "J� existe uma empresa com o nome 'Rafael'"
 
 }

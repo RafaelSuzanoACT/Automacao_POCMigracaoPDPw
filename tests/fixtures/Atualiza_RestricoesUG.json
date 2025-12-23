@@ -1,0 +1,13 @@
+[
+
+    {
+  "unidadeGeradoraId": 0,
+  "dataInicio": "2025-12-23T19:00:21.596Z",
+  "dataFim": "2025-12-23T19:00:21.596Z",
+  "motivoRestricaoId": 0,
+  "potenciaRestrita": 0,
+  "observacoes": "string",
+    "cenario": "Atualizacao Valida",
+    "httpcode": 200
+}
+]

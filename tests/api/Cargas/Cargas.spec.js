@@ -1,12 +1,15 @@
 import { test, expect } from '@playwright/test';
-const { Get_Cargas,
+const {
         Get_CargasFiltroID,
         Get_CargasFiltroPeriodo,
         Get_CargasFiltroSubSistema,
         Get_CargasDataReferencia,
-        Post_Cargas,
-        Delete_Carga,
-        Put_AtualizaCarga
+        
+        Post_Generico, 
+        Get_Generico,
+        
+        Delete_Generico,
+        Put_Generico,
 
 
 } = require('../../support/commands');
@@ -21,7 +24,7 @@ test.describe('API Cargas', () => {
     Cadastro_Cargas.forEach((payloadCarga) => {
         test(`01 Cadastro de Carga ${payloadCarga.cenario}`, async ({ request }, testInfo) => {
             const expectedStatus = payloadCarga.httpcode;
-            const response = await Post_Cargas(request, testInfo.project.use.baseURL, payloadCarga);
+            const response = await Post_Generico(request, testInfo.project.use.baseURL, 'Cargas', payloadCarga);
             const body = await response.json();
 
             console.log('Status Code:', response.status());
@@ -41,7 +44,7 @@ test.describe('API Cargas', () => {
 
 
     test('02 Consulta Todas Cargas', async ({ request }, testInfo) => {
-        const response = await Get_Cargas(request, testInfo.project.use.baseURL);
+        const response = await Get_Generico(request, testInfo.project.use.baseURL, 'Cargas');
         const body = await response.json();
 
         console.log('Status Code:', response.status());
@@ -51,7 +54,7 @@ test.describe('API Cargas', () => {
     });
 
     test('03 Consulta Carga Por ID', async ({ request }, testInfo) => {
-        const response = await Get_CargasFiltroID(request, testInfo.project.use.baseURL,1);
+        const response = await Get_CargasFiltroID(request, testInfo.project.use.baseURL,id_carga);
         const body = await response.json();
 
         console.log('Status Code:', response.status());
@@ -102,10 +105,10 @@ test.describe('API Cargas', () => {
     `08 Atualizar Carga - ${Atualiza_Cargas_Fixture.cenario}`,
     async ({ request }, testInfo) => {
 
-      const response = await Put_AtualizaCarga(
+      const response = await Put_Generico(
         request,
         testInfo.project.use.baseURL,
-        Atualiza_Cargas_Fixture, id_carga
+        Atualiza_Cargas_Fixture, id_carga, 'Cargas'
         
       );
 
@@ -120,7 +123,7 @@ test.describe('API Cargas', () => {
 });
    
 test('09 Delete Cargas', async ({ request }, testInfo) => {
-  const response = await Delete_Carga(request, testInfo.project.use.baseURL, id_carga);
+  const response = await Delete_Generico(request, testInfo.project.use.baseURL, id_carga, 'Cargas');
 
 
   console.log('Status Code:', response.status());

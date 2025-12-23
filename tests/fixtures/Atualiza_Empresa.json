@@ -1,8 +1,11 @@
 [
   {
-    "nome": "Teste Atualizado Email",
-    "email": "Atualizado@example.com",
-    "ativo": true,
+  "nome": "string",
+
+  "telefone": "11947881630",
+  "email": "user@example.com",
+  "endereco": "string",
+  "ativo": true,
     "httpcode": 200,
     "cenario": "Atualização do nome da Empresa e do email"
   },
@@ -10,6 +13,8 @@
     { 
     "nome": "Teste Atualizado Email",
     "telefone": "11947881630",
+      "cnpj": "51.147.753/9528-88",
+      "email": "Atualizado@example.com",
     "ativo": true,
     "httpcode": 200,
     "cenario": "Atualização do telefone da Empresa"
