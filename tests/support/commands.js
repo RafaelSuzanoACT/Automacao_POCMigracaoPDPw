@@ -211,7 +211,7 @@ async function Put_Generico(request, BaseURL, payload, id_, Endpoint) {
 
 
 async function Get_GenericoFiltroID(request, BaseURL, id_, Endpoint) {
-  const url = `${Endpoint}/${id_}`;
+  const url = `/${Endpoint}/${id_}`;
   console.log('URL Requisição:', `${BaseURL}${url}`);
 
   const response = await request.get(`${BaseURL}${url}`);
@@ -221,7 +221,7 @@ async function Get_GenericoFiltroID(request, BaseURL, id_, Endpoint) {
 }
 
 async function Get_GenericoFiltroParam(request, BaseURL, Endpoint, id_) {
-  const url = `${Endpoint}${id_}`;
+  const url = `/${Endpoint}/${id_}`;
   console.log('URL Requisição:', `${BaseURL}${url}`);
   const response = await request.get(`${BaseURL}${url}`);
     return response;

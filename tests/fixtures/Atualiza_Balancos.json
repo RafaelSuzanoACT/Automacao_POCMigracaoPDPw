@@ -1,0 +1,17 @@
+[
+
+  {
+    "dataReferencia": "2025-12-26T17:43:38.974Z",
+    "subsistemaId": "string",
+    "geracao": 0,
+    "carga": 0,
+    "intercambio": 0,
+    "perdas": 0,
+    "deficit": 0,
+    "observacoes": "Teste automatizado",
+    "ativo": true,
+  
+  "cenario": "Atualizacao de Balancos",
+  "httpcode": 200
+}
+]

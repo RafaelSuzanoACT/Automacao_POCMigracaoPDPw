@@ -7,9 +7,8 @@ const {
 
 
   Get_Empresa_Filtro, 
-
   Get_Empresa_Filtro_CNPJ, 
-  Get_Empresa_Verifica_Nome, 
+  Get_Generico_Verificar_Nome, 
   Get_Empresa_Filtro_Nome,
   Get_Empresa_Verifica_CNPJ,
 
@@ -17,6 +16,7 @@ const {
 const empresaFixture = require('../../fixtures/Cadastro_Empresa.json');
 const atualizaEmpresaFixture = require('../../fixtures/Atualiza_Empresa.json');
 let id_empresa ;
+let Endpoint = 'Empresas'
 test.describe('API Empresas', () => {
 
   // 🚀 Testes de POST
@@ -26,7 +26,7 @@ test.describe('API Empresas', () => {
       const expectedStatus = payloadEmpresa.httpcode;
      
 
-      const response = await Post_Generico(request, testInfo.project.use.baseURL,'Empresas', payloadEmpresa);
+      const response = await Post_Generico(request, testInfo.project.use.baseURL,Endpoint, payloadEmpresa);
       const body = await response.json();
       console.log('Projeto:', testInfo.project.name);
       console.log('BaseURL:', testInfo.project.use.baseURL);
@@ -51,7 +51,7 @@ test.describe('API Empresas', () => {
 
   // 🔹 Consulta todas empresas
   test('Consulta Todas Empresas', async ({ request }, testInfo) => {
-    const response = await Get_Generico(request, testInfo.project.use.baseURL, 'Empresas');
+    const response = await Get_Generico(request, testInfo.project.use.baseURL, Endpoint);
     const body = await response.json();
 
     console.log('Projeto:', testInfo.project.name);
@@ -102,7 +102,7 @@ test.describe('API Empresas', () => {
 
 
   test('Verifica Nome da Empresa  ', async ({ request }, testInfo) => {
-    const response = await Get_Empresa_Verifica_Nome(request, testInfo.project.use.baseURL, 'Rafael', id_empresa);
+    const response = await Get_Generico_Verificar_Nome(request, testInfo.project.use.baseURL, 'Rafael',Endpoint);
     const body = await response.json();
 
     console.log('Projeto:', testInfo.project.name);

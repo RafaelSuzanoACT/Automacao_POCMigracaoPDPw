@@ -1,0 +1,26 @@
+[
+
+    
+        {
+  "dataReferencia": "2025-12-26T13:49:08.933Z",
+  "codigoUsina": "string",
+  "producaoMWh": 0,
+  "capacidadeDisponivel": 0,
+  "status": "string",
+  "observacoes": "string",
+  "cenario": "Cadastrado com dados faltantes",
+  "httpcode":400
+},
+
+        {
+  "dataReferencia": "2025-12-26T13:49:08.933Z",
+  "codigoUsina": "1",
+  "producaoMWh": 0,
+  "capacidadeDisponivel": 0,
+  "status": "1",
+  "observacoes": "teste automatizado",
+  "cenario": "Cadastrado com sucesso",
+  "httpcode":201
+}
+    
+]

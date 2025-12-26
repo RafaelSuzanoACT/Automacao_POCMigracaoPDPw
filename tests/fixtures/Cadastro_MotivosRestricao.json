@@ -1,0 +1,31 @@
+[
+
+    {
+        "nome": "1",
+        "descricao": "1",
+        "categoria": "1",
+        "cenario": "Cadastro Valido",
+        "httpcode": 201
+      },
+      {
+        "nome": "",
+        "descricao": "1",
+        "categoria": "1",
+        "cenario": "Cadastro Invalido - Nome vazio",
+        "httpcode": 400
+      },
+      {
+        "nome": "1",
+        "descricao": "",
+        "categoria": "1",
+        "cenario": "Cadastro Invalido - Descricao vazio",
+        "httpcode": 400
+      },
+      {
+        "nome": "1",
+        "descricao": "1",
+        "categoria": "",
+        "cenario": "Cadastro Invalido - Categoria vazio",
+        "httpcode": 400
+      }
+]

@@ -1,0 +1,29 @@
+[
+{
+  "dataReferencia": "2025-12-26T17:37:51.043Z",
+  "subsistemaId": "string",
+  "geracao": 0,
+  "carga": 0,
+  "intercambio": 0,
+  "perdas": 0,
+  "deficit": 0,
+  "observacoes": "teste automatizado",
+  "cenario": "Cadastro Valido",
+  "httpcode": 201   
+},
+
+{
+  "dataReferencia": "2025-12-26T17:37:51.043Z",
+  "subsistemaId": "string",
+  "geracao": 0,
+  "carga": 0,
+  "intercambio": 0,
+  "perdas": 0,
+  "deficit": 0,
+  "observacoes": "teste automatizado",
+  "cenario": "Cadastro Valido duplicado",
+  "httpcode": 400   
+}
+
+
+]
