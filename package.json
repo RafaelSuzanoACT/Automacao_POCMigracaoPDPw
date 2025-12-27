@@ -8,18 +8,22 @@
     "test": "npm run clean:report && npx playwright test",
     "test:web": "npm run clean:report && npx playwright test --project=web",
     "test:api": "npm run clean:report && npx playwright test --project=api",
-   
-   
+
+
+    "test:api_ArquivosDadger": "npx playwright test api/ArquivosDadger --project=api",
     "test:api_carga": "npx playwright test api/Cargas --project=api",
     "test:api_GestaoEquipe": "npx playwright test api/GestaoEquipe --project=api",
     "test:api_TiposUsina": "npx playwright test api/TiposUsina --project=api",
     "test:api_Empresa": "npx playwright test api/Empresa --project=api",
-    "test:api_ArquivosDadger": "npx playwright test api/ArquivosDadger --project=api",
     "test:api_RestricoesUG": "npx playwright test api/RestricoesUG --project=api",
     "test:api_DadosEnergeticos": "npx playwright test api/DadosEnergeticos --project=api",
     "test:api_MotivosRestricao": "npx playwright test api/MotivosRestricao --project=api",
-    "test:api_Balancos": "npx playwright test api/Balancos --project=api"
+    "test:api_Balancos": "npx playwright test api/Balancos --project=api",
+    "test:api_Usuarios": "npx playwright test api/Usuarios --project=api",
+    "test:api_SemanasPmo": "npx playwright test api/SemanasPmo --project=api"
  
+    
+
   },
   "repository": {
     "type": "git",

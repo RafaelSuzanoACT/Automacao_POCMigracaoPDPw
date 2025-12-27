@@ -1,0 +1,23 @@
+[
+
+    {
+        "numero": 53,
+        "dataInicio": "2025-12-27T02:25:07.915Z",
+        "dataFim": "2025-12-27T02:25:07.915Z",
+        "ano": 2100,
+        "observacoes": "string",
+        "cenario": "Cadastro Valido",
+        "httpcode":201
+      },
+
+
+    {
+        "numero": 567,
+        "dataInicio": "2025-12-27T02:25:07.915Z",
+        "dataFim": "2025-12-27T02:25:07.915Z",
+        "ano": 2100,
+        "observacoes": "string",
+        "cenario": "O n�mero da semana deve estar entre 1 e 53",
+        "httpcode":400
+      }
+]

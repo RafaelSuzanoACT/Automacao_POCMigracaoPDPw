@@ -13,12 +13,12 @@ const {
 
 
 } = require('../../support/commands');
-const Cadastro_Fixture= require('../../fixtures/Cadastro_Balancos.json');
+const Cadastro_Fixture= require('../../fixtures/Cadastro_Usuarios.json');
 //const Atualiza_Cargas = require('../../fixtures/Atualiza_Balancos.json');
 
 let id_registro
-let endpoint = 'Balancos';
-const Dataset_SubsitemaID = ['SE','S','NE','N']
+let endpoint = 'usuarios';
+
 
 
 test.describe('API '+ endpoint, () => {
@@ -62,19 +62,7 @@ test.describe('API '+ endpoint, () => {
 
   });
 
-      test('03 Consulta ' + endpoint + ' Periodo', async ({ request }, testInfo) => {
-    const response = await Get_FiltroPeriodo(
-      request,
-        testInfo.project.use.baseURL,
-        endpoint+'/periodo','2025-12-01'  ,'2025-12-31'
-    );
-    const body = await response.json();
-    console.log('Response Body:', body);
-    console.log('Status Code:', response.status());
-    expect(response.status()).toBe(200);        
-});
-
-    test('04 Consulta ' + endpoint + '  Por ID', async ({ request }, testInfo) => {
+    test('02 Consulta ' + endpoint + '  Por ID', async ({ request }, testInfo) => {
     const response = await Get_GenericoFiltroID(
       request,
       testInfo.project.use.baseURL,
@@ -89,27 +77,14 @@ test.describe('API '+ endpoint, () => {
 
 
 
-Dataset_SubsitemaID.forEach((tipo) => {
-    test(`05 GET Consulta Tipos  - ${endpoint} + ${tipo}`, async ({ request }, testInfo) => {
-      const response = await Get_Generico(
-        request,
-        testInfo.project.use.baseURL,
-        endpoint + '/subsistema/' + tipo
-      );
-  
-      const body = await response.json();
-      console.log('Dataset:', tipo);
-      console.log('Status Code:', response.status());
-      console.log('Response Body:', body);
-    });
-  });
 
 
-  test('06 Consulta por Data ' + endpoint , async ({ request }, testInfo) => {
+
+  test('03 Consulta  Equipe ' + endpoint , async ({ request }, testInfo) => {
     const response = await Get_GenericoFiltroParam(
       request,
       testInfo.project.use.baseURL,
-     endpoint +'/data','2024-12-25'
+     endpoint +'/equipe',1
     );
 
     console.log('Status Code:', response.status());
@@ -117,11 +92,25 @@ Dataset_SubsitemaID.forEach((tipo) => {
   });
 
 
-  test('07 Consulta SubSistema Data ' + endpoint , async ({ request }, testInfo) => {
+
+  test('04 Consulta  Perfil ' + endpoint , async ({ request }, testInfo) => {
     const response = await Get_GenericoFiltroParam(
       request,
       testInfo.project.use.baseURL,
-     endpoint +'/subsistema/SE/data','2024-12-25'
+     endpoint +'/perfil',1
+    );
+
+    console.log('Status Code:', response.status());
+    expect(response.status()).toBe(200);
+  });
+
+
+
+  test('05 Consulta  email ' + endpoint , async ({ request }, testInfo) => {
+    const response = await Get_GenericoFiltroParam(
+      request,
+      testInfo.project.use.baseURL,
+     endpoint +'/email','User_Automacao@User_Automacao.com'
     );
 
     console.log('Status Code:', response.status());

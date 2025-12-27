@@ -1,0 +1,14 @@
+[
+
+    {
+        "nome": "User_Automacao",
+        "email": "User_Automacao@User_Automacao.com",
+        "telefone": "1194788130",
+        "equipePDPId": 1,
+        "perfil": "teste",
+        "cenario": "Cadastro Valido",
+        "httpcode":201
+
+      }
+
+]

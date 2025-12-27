@@ -1,3 +1,6 @@
+
+
+
 import { test, expect } from '@playwright/test';
 const {
     
@@ -13,12 +16,11 @@ const {
 
 
 } = require('../../support/commands');
-const Cadastro_Fixture= require('../../fixtures/Cadastro_Balancos.json');
+const Cadastro_Fixture= require('../../fixtures/Cadastro_SemanasPmo.json');
 //const Atualiza_Cargas = require('../../fixtures/Atualiza_Balancos.json');
 
 let id_registro
-let endpoint = 'Balancos';
-const Dataset_SubsitemaID = ['SE','S','NE','N']
+let endpoint = 'SemanasPmo';
 
 
 test.describe('API '+ endpoint, () => {
@@ -62,23 +64,12 @@ test.describe('API '+ endpoint, () => {
 
   });
 
-      test('03 Consulta ' + endpoint + ' Periodo', async ({ request }, testInfo) => {
-    const response = await Get_FiltroPeriodo(
-      request,
-        testInfo.project.use.baseURL,
-        endpoint+'/periodo','2025-12-01'  ,'2025-12-31'
-    );
-    const body = await response.json();
-    console.log('Response Body:', body);
-    console.log('Status Code:', response.status());
-    expect(response.status()).toBe(200);        
-});
 
-    test('04 Consulta ' + endpoint + '  Por ID', async ({ request }, testInfo) => {
+    test('03 Consulta ' + endpoint + '  Por ID', async ({ request }, testInfo) => {
     const response = await Get_GenericoFiltroID(
       request,
       testInfo.project.use.baseURL,
-     id_registro,  endpoint,
+     1,  endpoint,
     );
     const body = await response.json();
     console.log('Response Body:', body);
@@ -89,45 +80,62 @@ test.describe('API '+ endpoint, () => {
 
 
 
-Dataset_SubsitemaID.forEach((tipo) => {
-    test(`05 GET Consulta Tipos  - ${endpoint} + ${tipo}`, async ({ request }, testInfo) => {
-      const response = await Get_Generico(
-        request,
-        testInfo.project.use.baseURL,
-        endpoint + '/subsistema/' + tipo
-      );
+
+
+  test('04 Consulta Atual ' + endpoint , async ({ request }, testInfo) => {
+    const response = await Get_Generico(
+      request,
+      testInfo.project.use.baseURL,
+     endpoint +'/atual'
+    );
+    const body = await response.json();
+    console.log('Response Body:', body);
+    console.log('Status Code:', response.status());
+    expect(response.status()).toBe(200);
+  });
+
+
+  test('05 Consulta Data ' + endpoint , async ({ request }, testInfo) => {
+    const response = await Get_GenericoFiltroParam(
+      request,
+      testInfo.project.use.baseURL,
+     endpoint +'/data','2026-12-19'
+    );
+
+    console.log('Status Code:', response.status());
+    expect(response.status()).toBe(200);
+  });
+
+
+  test('06 Consulta  Numero da Semana e  Ano ' + endpoint , async ({ request }, testInfo) => {
+    const response = await Get_GenericoFiltroParam(
+      request,
+      testInfo.project.use.baseURL,
+     endpoint +'/numero/1/ano','2025'
+    );
+
+    console.log('Status Code:', response.status());
+    const body = await response.json();
+    console.log('Response Body:', body);
+    expect(response.status()).toBe(200);
+  });
+
+
+
+  test('07 Consulta  Verifica numero e ano ' + endpoint , async ({ request }, testInfo) => {
+    const response = await Get_GenericoFiltroParam(
+      request,
+      testInfo.project.use.baseURL,
+     endpoint +'/verificar-numero/1/ano','2025'
+    );
+
+    console.log('Status Code:', response.status());
+    const body = await response.json();
+    console.log('Response Body:', body);
+    expect(response.status()).toBe(200);
+  });
+
   
-      const body = await response.json();
-      console.log('Dataset:', tipo);
-      console.log('Status Code:', response.status());
-      console.log('Response Body:', body);
-    });
-  });
-
-
-  test('06 Consulta por Data ' + endpoint , async ({ request }, testInfo) => {
-    const response = await Get_GenericoFiltroParam(
-      request,
-      testInfo.project.use.baseURL,
-     endpoint +'/data','2024-12-25'
-    );
-
-    console.log('Status Code:', response.status());
-    expect(response.status()).toBe(200);
-  });
-
-
-  test('07 Consulta SubSistema Data ' + endpoint , async ({ request }, testInfo) => {
-    const response = await Get_GenericoFiltroParam(
-      request,
-      testInfo.project.use.baseURL,
-     endpoint +'/subsistema/SE/data','2024-12-25'
-    );
-
-    console.log('Status Code:', response.status());
-    expect(response.status()).toBe(200);
-  });
-
 
 
 test('09 Delete ' + endpoint, async ({ request }, testInfo) => {
@@ -148,6 +156,4 @@ test('09 Delete ' + endpoint, async ({ request }, testInfo) => {
     expect(response.status()).toBe(204);
   });
   
-
-
-  });
+})
