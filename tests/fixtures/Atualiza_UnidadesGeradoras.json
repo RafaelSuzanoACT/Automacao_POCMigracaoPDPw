@@ -1,0 +1,14 @@
+[
+    {
+  "codigo": "string",
+  "nome": "string",
+  "usinaId": 21,
+  "potenciaNominal": 0.01,
+  "potenciaMinima": 0,
+  "dataComissionamento": "2025-12-29T14:41:51.320Z",
+  "status": "string",
+  "ativo": true,
+  "cenario": "Atualiza Unidade Geradora Existente",
+  "httpcode": 200
+}
+]

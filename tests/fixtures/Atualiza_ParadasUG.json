@@ -1,0 +1,15 @@
+[
+
+        {
+  "unidadeGeradoraId": 21,
+  "dataInicio": "2025-12-29T13:52:13.452Z",
+  "dataFim": "2025-12-29T13:52:13.452Z",
+  "motivoParada": "teste automatizado",
+  "observacoes": "string",
+  "programada": true,
+  "ativo": true,
+  "cenario": "Atualizar Parada UG Existente",
+  "httpcode": 200
+}
+
+]

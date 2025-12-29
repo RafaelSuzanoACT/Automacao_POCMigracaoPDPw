@@ -20,10 +20,10 @@
     "test:api_MotivosRestricao": "npx playwright test api/MotivosRestricao --project=api",
     "test:api_Balancos": "npx playwright test api/Balancos --project=api",
     "test:api_Usuarios": "npx playwright test api/Usuarios --project=api",
-    "test:api_SemanasPmo": "npx playwright test api/SemanasPmo --project=api"
- 
-    
-
+    "test:api_SemanasPmo": "npx playwright test api/SemanasPmo --project=api",
+    "test:api_Intercambios": "npx playwright test api/Intercambios --project=api",
+    "test:api_ParadasUG": "npx playwright test api/ParadasUG --project=api",
+    "test:api_UnidadesGeradoras": "npx playwright test api/UnidadesGeradoras --project=api"
   },
   "repository": {
     "type": "git",

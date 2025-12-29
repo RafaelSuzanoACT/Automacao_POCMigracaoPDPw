@@ -1,0 +1,15 @@
+[
+
+    {
+  "codigo": "1985",
+  "nome": "string",
+  "usinaId": 2,
+  "potenciaNominal": 0.01,
+  "potenciaMinima": 0,
+  "dataComissionamento": "2025-12-29T14:40:02.379Z",
+  "status": "teste",
+  "cenario": "Cadastro de nova Unidade Geradora com sucesso",
+  "httpcode": 201
+
+}
+]

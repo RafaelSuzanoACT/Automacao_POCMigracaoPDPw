@@ -1,0 +1,13 @@
+[
+    {
+  "unidadeGeradoraId": 21,
+  "dataInicio": "2025-12-29T13:50:50.412Z",
+  "dataFim": "2025-12-29T13:50:50.412Z",
+  "motivoParada": "teste",
+  "observacoes": "teste",
+  "programada": true,
+  "cenario": "Cadastro com sucesso",
+  "httpcode": 201
+}
+
+]

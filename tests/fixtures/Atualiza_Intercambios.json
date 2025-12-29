@@ -1,0 +1,13 @@
+[
+
+{
+  "dataReferencia": "2025-12-29T12:26:34.009Z",
+  "subsistemaOrigem": "456",
+  "subsistemaDestino": "656",
+  "energiaIntercambiada": 0,
+  "observacoes": "teste",
+  "ativo": true,
+    "cenario": "Atualiza  de Intercambio com sucesso",
+    "httpcode": 200
+}
+]

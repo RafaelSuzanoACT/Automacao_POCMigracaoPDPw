@@ -19,9 +19,8 @@ const datasets_motivos = ['PROGRAMADA', 'EMERGENCIAL',' MANUTEN��O'];
 
 //const Atualiza_Fixture = require('../../fixtures/Atualiza_DadosEnergeticos.json');
 
-let id_
 let endpoint = 'MotivosRestricao';
-
+let id_registro;
 
 test.describe('API ' + endpoint , () => {
 
@@ -42,7 +41,7 @@ test.describe('API ' + endpoint , () => {
       console.log('Response Body:', body);
 
       if (body?.id) {
-        id_ = body.id;
+       id_registro = body.id;
         console.log('✅ ID :',id_);
       }
 
@@ -95,7 +94,7 @@ test.describe('API ' + endpoint , () => {
     const response = await Get_GenericoFiltroID(
       request,
       testInfo.project.use.baseURL,
-     id_,  endpoint,
+    id_registro,  endpoint,
     );
     const body = await response.json();
     console.log('Response Body:', body);
@@ -104,20 +103,25 @@ test.describe('API ' + endpoint , () => {
 });
 
 
-test('07 DELETE - Remover' + endpoint + ' Por ID', async ({ request }, testInfo) => {
-    expect(id_).toBeDefined();
-
+ test('07 DELETE -' + endpoint, async ({ request }, testInfo) => {
     const response = await Delete_Generico(
       request,
       testInfo.project.use.baseURL,
-      id_,
+     id_registroregistro,
       endpoint
     );
 
     console.log('Status Code:', response.status());
 
-    expect([200, 204]).toContain(response.status());
-  });
+    let body;
+    try {
+      body = await response.json();
+    } catch {
+      body = 'No content';
+    }
 
+    console.log('Response Body:', body);
+    expect(response.status()).toBe(204);
+  });
 
   });

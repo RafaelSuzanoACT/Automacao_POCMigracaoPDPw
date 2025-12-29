@@ -1,0 +1,22 @@
+[
+    {
+  "dataReferencia": "2025-12-29T12:23:05.769Z",
+  "subsistemaOrigem": "string",
+  "subsistemaDestino": "string",
+  "energiaIntercambiada": 0,
+  "observacoes": "string",
+  "cenario": "Cadastro  de Intercambio com O subsistema de origem deve ser diferente do subsistema de destino",
+  "httpcode": 400
+},
+
+    {
+  "dataReferencia": "2025-12-29T12:23:05.769Z",
+  "subsistemaOrigem": "1",
+  "subsistemaDestino": "2",
+  "energiaIntercambiada": 0,
+  "observacoes": "3",
+  "cenario": "Cadastro  de Intercambio com sucesso",
+  "httpcode": 201
+}
+
+]
